@@ -12,14 +12,13 @@ import FeedbackCard from "./Main/FeedbackCard";
 import Home from "./Home";
 import About from "./About";
 import Info from "./Main/Info";
-import CoverFlow from "./Main/CoverFlow";
 import Services from "./Main/Services";
 import CareerNav from "./CareerNav";
 import BackgroundImage from "./Main/BackgroundImage"
 import Apply from "./Apply";
 import Form from "./Main/Form";
 import GradientText from "./Main/GradientText";
-
+import Coverflow from "./Main/Coverflow";
 export {
   Navbar,
   Career,
@@ -35,11 +34,11 @@ export {
   Home,
   About,
   Info,
-  CoverFlow,
   Services,
   CareerNav,
   BackgroundImage,
   Apply,
   Form,
   GradientText,
+  Coverflow,
 };

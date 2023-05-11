@@ -1,181 +1,83 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-function CoverFlow() {
-    const [enlargedImage, setEnlargedImage] = useState(null);
-    const [images, setImages] = useState([
-        {
-            src: 'https://picsum.photos/300/200?random=1',
-            alt: 'Image 1',
-            largeSrc: 'https://picsum.photos/800/600?random=1'
-        },
-        {
-            src: 'https://picsum.photos/300/200?random=2',
-            alt: 'Image 2',
-            largeSrc: 'https://picsum.photos/800/600?random=2'
-        },
-        {
-            src: 'https://picsum.photos/300/200?random=3',
-            alt: 'Image 3',
-            largeSrc: 'https://picsum.photos/800/600?random=3'
-        },
-        {
-            src: 'https://picsum.photos/300/200?random=4',
-            alt: 'Image 4',
-            largeSrc: 'https://picsum.photos/800/600?random=4'
-        },
-        {
-            src: 'https://picsum.photos/300/200?random=5',
-            alt: 'Image 5',
-            largeSrc: 'https://picsum.photos/800/600?random=5'
-        },
-    ]);
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [animation, setAnimation] = useState(false);
-    const containerRef = useRef(null);
+import { EffectCoverflow, Pagination, Navigation } from 'swiper';
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            let nextIndex = currentIndex + 1;
-            if (nextIndex === images.length) {
-                nextIndex = 0;
-            }
-            setCurrentIndex(nextIndex);
-            setAnimation(true);
-        }, 3000);
+// Import images from the web
+const slide_image_1 = 'https://picsum.photos/id/1/200/200';
+const slide_image_2 = 'https://picsum.photos/id/2/200/200';
+const slide_image_3 = 'https://picsum.photos/id/3/200/200';
+const slide_image_4 = 'https://picsum.photos/id/4/200/200';
+const slide_image_5 = 'https://picsum.photos/id/5/200/200';
+const slide_image_6 = 'https://picsum.photos/id/6/200/200';
+const slide_image_7 = 'https://picsum.photos/id/7/200/200';
 
-        return () => clearInterval(intervalId);
-    }, [currentIndex, images.length]);
+import './coverflow.css';
 
-    const handleImageClick = (imageUrl) => {
-        setEnlargedImage(imageUrl);
-    };
+function Coverflow() {
+  return (
+    <div className="ccontainer">
+      <h1 className="heading">Flower Gallery</h1>
+      <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+        }}
+        pagination={{ el: '.swiper-pagination', clickable: true }}
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+          clickable: true,
+        }}
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        className="swiper_container"
+      >
+        <SwiperSlide>
+          <img src={slide_image_1} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slide_image_2} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slide_image_3} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slide_image_4} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slide_image_5} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slide_image_6} alt="slide_image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={slide_image_7} alt="slide_image" />
+        </SwiperSlide>
 
-    const handleClose = () => {
-        setEnlargedImage(null);
-    };
-
-    const handleNext = () => {
-        let nextIndex = currentIndex + 1;
-        if (nextIndex === images.length) {
-            nextIndex = 0;
-        }
-        setCurrentIndex(nextIndex);
-        setAnimation(true);
-    };
-
-    const handlePrev = () => {
-        let nextIndex = currentIndex - 1;
-        if (nextIndex < 0) {
-            nextIndex = images.length - 1;
-        }
-        setCurrentIndex(nextIndex);
-        setAnimation(true);
-    };
-
-    const modalStyles = {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 9999,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        overflow: 'hidden',
-    };
-
-    const modalContentStyles = {
-        position: 'relative',
-        maxWidth: '90%',
-        maxHeight: '90%',
-        overflow: 'auto',
-    };
-
-    const modalImageStyles = {
-        display: 'block',
-        margin: 'auto',
-        maxWidth: '100%',
-        maxHeight: '100%',
-    };
-
-    const handleAnimationEnd = () => {
-        setAnimation(false);
-    };
-
-    const handleFocus = (index) => {
-        if (currentIndex === index) {
-            return;
-        }
-        setCurrentIndex(index);
-        setAnimation(true);
-    };
-
-    const shuffleImages = () => {
-        const shuffledImages = images.sort(() => Math.random() - 0.5);
-        setImages(shuffledImages);
-    };
-
-    const handleImageMove = (index) => {
-        if (currentIndex === index) {
-            return;
-        }
-        setCurrentIndex(index);
-        setAnimation(true);
-    };
-
-    const handleImageGrow = (index) => {
-        if (currentIndex === index) {
-            return;
-        }
-        setCurrentIndex(index);
-        setAnimation(true);
-        containerRef.current.scrollTo({
-            left: index * 300,
-            behavior: 'smooth',
-        });
-    };
-
-    return (
-        <div>
-            <div className="containerm overflow: hidden" ref={containerRef}>
-                {images.map((image, index) => (
-                    <div
-                        key={index}
-                        className={`image-container ${currentIndex === index ? 'active' : ''
-                            } ${animation ? 'animate' : ''}`}
-                        onClick={() => handleImageClick(image.largeSrc)}
-                        onMouseEnter={() => handleFocus(index)}
-                    >
-                        <img
-                            src={image.src}
-                            alt={image.alt}
-                            className="image"
-                            onAnimationEnd={handleAnimationEnd}
-                        />
-                    </div>
-                ))}
-            </div>
-            <div className="controls">
-                <button onClick={handlePrev}>Prev</button>
-                <button onClick={handleNext}>Next</button>
-                <button onClick={shuffleImages}>Shuffle</button>
-            </div>
-            {enlargedImage && (
-                <div style={modalStyles} onClick={handleClose}>
-                    <div style={modalContentStyles}>
-                        <img
-                            src={enlargedImage}
-                            alt="Enlarged"
-                            style={modalImageStyles}
-                        />
-                    </div>
-                </div>
-            )}
+        <div className="slider-controler">
+          <div className="swiper-button-prev slider-arrow">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </div>
+          <div className="swiper-button-next slider-arrow">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+          <div className="swiper-pagination"></div>
         </div>
-    );
+      </Swiper>
+    </div>
+  );
 }
 
-export default CoverFlow;  
+export default Coverflow;

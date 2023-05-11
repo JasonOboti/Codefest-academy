@@ -2,12 +2,10 @@ import styles from "../../style";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import Services from "./Services";
-import CoverFlow from "./Coverflow";
 
 const Info = () => {
   const [ref, inView] = useInView({
     threshold: 0.5, // Trigger animation when component is 50% in view
-
   });
 
   const container = {
@@ -26,8 +24,6 @@ const Info = () => {
     show: { opacity: 1, y: 0 },
   };
 
-
-
   return (
     <motion.section
       className={`${styles.paddingY} ${styles.flexCenter} flex-col relative mt-10 `}
@@ -42,8 +38,18 @@ const Info = () => {
         className="w-full  justify-between  md:flex-row flex-col sm:mb-16 mb-6 relative z-[1]"
         variants={item}
       >
+        <div className="I">
+          <iframe
+            src="https://www.youtube.com/embed/AJajnDb60_8?controls=0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <br />
         <h3 className={styles.heading3}>About Us</h3>
-        <CoverFlow /> <br />
         <motion.div
           className="w-full  md:mt-0 mt-10"
           initial="hidden"
@@ -69,7 +75,7 @@ const Info = () => {
         <br />
         <br />
         <br />
-        <motion.div className="w-full flex  justify-between  md:flex-row flex-col sm:mb-16 mb-6 relative z-[1]" >
+        <motion.div className="w-full flex  justify-between  md:flex-row flex-col sm:mb-16 mb-6 relative z-[1]">
           <div className="m-5">
             <h4 className={styles.heading4}>Vision</h4>
             <p className={`${styles.paragraph} text-left max-w-[450px]`}>

@@ -19,6 +19,21 @@ export const navLinks = [
   },
 ];
 
+export const items = [
+  {
+    title: "Title 1",
+    image: "https://example.com/image1.jpg",
+  },
+  {
+    title: "Title 2",
+    image: "https://example.com/image2.jpg",
+  },
+  {
+    title: "Title 3",
+    image: "https://example.com/image3.jpg",
+  },
+];
+
 export const features = [
   {
     id: "feature-1",

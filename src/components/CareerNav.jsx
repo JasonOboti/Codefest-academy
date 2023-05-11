@@ -5,6 +5,7 @@ import BackgroundImage from './Main/BackgroundImage'
 import styles from '../style'
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import Coverflow from './Main/Coverflow'
 
 const photos = [
   'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
@@ -40,6 +41,7 @@ const CareerNav = () => {
     >
       <Navbar />
       <BackgroundImage photos={photos} />
+          <Coverflow />
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Footer />

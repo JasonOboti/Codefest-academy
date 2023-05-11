@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
-        <Router>
+        <Router basename="/Codefest-Academy">
           <Routes>
             <Route path="/*" element={<Home />} />
             <Route path="/about" element={<About />} />
