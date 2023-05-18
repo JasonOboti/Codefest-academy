@@ -29,7 +29,7 @@ const Hero = () => {
 
 
   return (
-    <motion.section
+    <section
       id="home"
       className={`flex md:flex-row flex-col ${styles.paddingY}`}
       variants={container}
@@ -115,7 +115,7 @@ const Hero = () => {
       <motion.div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" variants={item} />
       {/* gradient end */}
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 

@@ -1,6 +1,6 @@
 .ccontainer {
     max-width: 100rem;
-    padding: 6rem 1rem;
+    padding: 0rem 0rem;
     margin: 0 auto;
   }
   
@@ -13,7 +13,7 @@
   
   .swiper_container {
     height: 52rem;
-    padding: 2rem 0;
+    padding: 2rem 3rem;
     position: relative;
   }
   
@@ -28,11 +28,11 @@
       height: 47rem;
     }
     .swiper-slide {
-      width: 28rem !important;
+      width: 20rem !important;
       height: 36rem !important;
     }
     .swiper-slide img {
-      width: 28rem !important;
+      width: 20rem !important;
       height: 36rem !important;
     }
   }

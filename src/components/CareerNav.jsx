@@ -7,10 +7,16 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import Coverflow from './Main/Coverflow'
 
+
+import slide_image_1 from "../assets/Photos/Background (5).jpg"
+import slide_image_2 from "../assets/Photos/Background (3).jpg"
+import slide_image_3 from "../assets/Photos/Background (7).jpg"
+
+
 const photos = [
-  'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
-  'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
-  'https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350',
+  slide_image_1,
+  slide_image_2,
+  slide_image_3,
 ];
 
 const CareerNav = () => {
@@ -41,7 +47,7 @@ const CareerNav = () => {
     >
       <Navbar />
       <BackgroundImage photos={photos} />
-          <Coverflow />
+        <Coverflow />  
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Footer />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../../style';
+import Button from './Button';
 
 const PhotoDisplay = ({ photos }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -7,7 +8,7 @@ const PhotoDisplay = ({ photos }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
-    }, 5000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [photos.length]);
 
@@ -18,7 +19,7 @@ const PhotoDisplay = ({ photos }) => {
         overflow: 'hidden',
         marginBottom: '-100px',
         paddingBottom: '100px',
-        minHeight: '80vh',
+        minHeight: '50vh',
       }}
     >
       <img
@@ -51,11 +52,11 @@ const PhotoDisplay = ({ photos }) => {
             textShadow: '2px 2px 4px #000000',
           }}
         >
-          Parallax Text Effect
         </h1>
         <p style={{ fontSize: '2rem' }}>
-          This is a demo of a parallax text effect using React and CSS.
+          
         </p>
+        <Button />
       </div>
       <div
         style={{
@@ -65,7 +66,7 @@ const PhotoDisplay = ({ photos }) => {
           bottom: 70,
           right: 0,
           backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(0,4,15) 100%)',
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,4,15) 100%)',
         }}
       />
     </div>
