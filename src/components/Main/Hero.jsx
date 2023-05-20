@@ -4,6 +4,7 @@ import GetStarted from "./GetStarted";
 import GradientText from "./GradientText";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [ref, inView] = useInView({
@@ -78,8 +79,13 @@ const Hero = () => {
           <motion.div
             className="ss:flex hidden md:mr-4 mr-0"
             variants={item}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
+            <Link to="/apply">
             <GetStarted variants={item} />
+            </Link>
+            
           </motion.div>
         </motion.div>
 

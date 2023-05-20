@@ -4,7 +4,7 @@ import { navLinks } from "../../constants";
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [visible, setVisible] = useState(true);
   

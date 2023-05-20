@@ -16,9 +16,21 @@ import Services from "./Main/Services";
 import CareerNav from "./CareerNav";
 import BackgroundImage from "./Main/BackgroundImage"
 import Apply from "./Apply";
-import Form from "./Main/Form";
+import Form1 from "./Main/Form1";
+import Form2 from "./Main/Form2";
+import Form3 from "./Main/Form3";
+import Form4 from "./Main/Form4";
+import Form5 from "./Main/Form5";
 import GradientText from "./Main/GradientText";
 import Coverflow from "./Main/Coverflow";
+import ImageCardList from "./Main/ImageCardList";
+import Apply1 from "./Main/Apply1";
+import Apply2 from "./Main/Apply2";
+import Apply3 from "./Main/Apply3";
+import Apply4 from "./Main/Apply4";
+import Apply5 from "./Main/Apply5";
+
+
 export {
   Navbar,
   Career,
@@ -38,7 +50,17 @@ export {
   CareerNav,
   BackgroundImage,
   Apply,
-  Form,
+  Form1,
+  Form2,
+  Form3,
+  Form4,
+  Form5,
   GradientText,
   Coverflow,
+  ImageCardList,
+  Apply1,
+  Apply2,
+  Apply3,
+  Apply4,
+  Apply5,
 };

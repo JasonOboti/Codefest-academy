@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Form() {
+function Form5() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,8 +18,8 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit}  className="max-w-md mx-auto px-4 py-8 bg-white bg-opacity-50  backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4">
-      <h2 className="text-2xl font-bold mb-4">Join Our Mailing List</h2>
+    <form onSubmit={handleSubmit}  className="max-w-md mx-auto mt-40 px-4 py-8 bg-white bg-opacity-50  backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4">
+      <h2 className="text-2xl font-bold mb-4">Application Form</h2>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <div>
           <label className="block text-gray-700 font-bold mb-2" htmlFor="firstName">
@@ -99,4 +99,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default Form5;
