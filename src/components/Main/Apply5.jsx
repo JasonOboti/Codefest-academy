@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../style';
-import { Navbar, Footer } from "../../components";
+import { Navbar, Footer, Form5 } from "../../components";
 
 const Apply5 = () => {
   return (
@@ -9,6 +9,7 @@ const Apply5 = () => {
 
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
+          <Form5 />
           <Footer />
         </div>
       </div>

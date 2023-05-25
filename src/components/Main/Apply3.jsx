@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../style';
-import { Navbar, Footer } from "../../components";
+import { Navbar, Footer, Form3 } from "../../components";
 
 const Apply3 = () => {
   return (
@@ -9,6 +9,7 @@ const Apply3 = () => {
 
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
+          <Form3 />
           <Footer />
         </div>
       </div>

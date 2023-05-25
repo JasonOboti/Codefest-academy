@@ -9,12 +9,27 @@ const imageData = [
   {
     image: slide_image_1,
     writeup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    to: '/career',
+    to: '/apply-STEM',
   },
   {
     image: slide_image_2,
     writeup: 'Vestibulum eget lectus ut turpis vulputate imperdiet.',
-    to: '/'
+    to: '/apply-IT'
+  },
+  {
+    image: slide_image_2,
+    writeup: 'Vestibulum eget lectus ut turpis vulputate imperdiet.',
+    to: '/apply-IT-program'
+  },
+  {
+    image: slide_image_2,
+    writeup: 'Vestibulum eget lectus ut turpis vulputate imperdiet.',
+    to: '/apply-diploma'
+  },
+  {
+    image: slide_image_2,
+    writeup: 'Vestibulum eget lectus ut turpis vulputate imperdiet.',
+    to: '/apply-CBT'
   },
   // Add more data objects for additional cards
 ];

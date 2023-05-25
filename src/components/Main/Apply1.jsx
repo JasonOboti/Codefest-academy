@@ -1,19 +1,20 @@
 import React from 'react'
 import styles from '../../style';
-import { Navbar, Footer } from "../../components";
+import { Navbar, Footer, Form1 } from "../../components";
 
 const Apply1 = () => {
-  return (
-    <>
-      <Navbar />
+    return (
+        <>
+            <Navbar />
 
-      <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          <Footer />
-        </div>
-      </div>
-    </>
-  )
+            <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+                <div className={`${styles.boxWidth}`}>
+                    <Form1 />
+                    <Footer />
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default Apply1
