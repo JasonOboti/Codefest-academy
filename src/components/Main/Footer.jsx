@@ -1,16 +1,19 @@
 import styles from "../../style";
 import { logo } from "../../assets";
 import { footerLinks, socialMedia } from "../../constants";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
     <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
       <div className="flex-[1] flex flex-col justify-start mr-10">
-        <img
+      <Link to={'/'}>
+      <img
           src={logo}
           alt="codefest"
           className="w-[250px] h-[72.14px] object-contain"
         />
+      </Link>
         <p className={`${styles.paragraph} mt-4 max-w-[312px]`}>
           An Organisation birthed to transform Africa.
         </p>

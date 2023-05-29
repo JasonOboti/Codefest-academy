@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import sendEmail from "./sendEmail";
+import sanitizeHtml from "sanitize-html";
+
+
+
 
 function Form1() {
   const [firstName, setFirstName] = useState("");
@@ -7,22 +11,47 @@ function Form1() {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [howDidYouFindUs, setHowDidYouFindUs] = useState("");
+  const [gender, setGender] = useState("");
+  const [currentEducation, setCurrentEducation] = useState("");
+  const [codingExperience, setCodingExperience] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (formSubmitted) {
+      return; // Prevent multiple submissions
+    }
+
+    // Sanitize input values
+    const sanitizedFirstName = sanitizeHtml(firstName);
+    const sanitizedLastName = sanitizeHtml(lastName);
+    const sanitizedEmail = sanitizeHtml(email);
+    const sanitizedMobile = sanitizeHtml(mobile);
+    const sanitizedHowDidYouFindUs = sanitizeHtml(howDidYouFindUs);
+    const sanitizedGender = sanitizeHtml(gender);
+    const sanitizedCurrentEducation = sanitizeHtml(currentEducation);
+    const sanitizedCodingExperience = sanitizeHtml(codingExperience);
+
     const formData = {
-      firstName,
-      lastName,
-      email,
-      mobile,
-      howDidYouFindUs,
+      firstName: sanitizedFirstName,
+      lastName: sanitizedLastName,
+      email: sanitizedEmail,
+      mobile: sanitizedMobile,
+      howDidYouFindUs: sanitizedHowDidYouFindUs,
+      gender: sanitizedGender,
+      currentEducation: sanitizedCurrentEducation,
+      codingExperience: sanitizedCodingExperience,
     };
 
-    sendEmail(formData);
-
-    setFormSubmitted(true);
+    try {
+      await sendEmail(formData);
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error(error);
+      setError(true);
+    }
   };
 
   return (
@@ -30,9 +59,12 @@ function Form1() {
       {!formSubmitted ? (
         <form
           onSubmit={handleSubmit}
-          className="max-w-md mx-auto mt-40 px-4 py-8 bg-white bg-opacity-50  backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4"
+          className="max-w-md mx-auto mt-40 px-4 py-8 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4"
         >
-          <h2 className="text-2xl font-bold mb-4">Application Form</h2>
+          <h2 className="text-2xl text-white font-bold mb-4">Apply for STEM (Coding) School program</h2>
+          {error && (
+            <p className="text-red-500 mb-4">Something went wrong. Please try again later.</p>
+          )}
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
               <label className="block text-gray-700 font-bold mb-2" htmlFor="firstName">
@@ -42,7 +74,7 @@ function Form1() {
                 id="firstName"
                 type="text"
                 value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={(e) => setFirstName(e.target.value.replace(/[^a-zA-Z\s]/g, "").slice(0, 50))}
                 className="border-2 border-gray-200 p-2 w-full rounded-md"
                 required
               />
@@ -55,7 +87,7 @@ function Form1() {
                 id="lastName"
                 type="text"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={(e) => setLastName(e.target.value.replace(/[^a-zA-Z\s]/g, "").slice(0, 50))}
                 className="border-2 border-gray-200 p-2 w-full rounded-md"
                 required
               />
@@ -88,6 +120,70 @@ function Form1() {
             />
           </div>
           <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2" htmlFor="gender">
+              Gender:
+            </label>
+            <div className="flex items-center">
+              <input
+                type="radio"
+                id="gender-male"
+                value="Male"
+                checked={gender === "Male"}
+                onChange={(e) => setGender(e.target.value)}
+                className="mr-2"
+                required
+              />
+              <label htmlFor="gender-male" className="text-gray-700 mr-4">
+                Male
+              </label>
+              <input
+                type="radio"
+                id="gender-female"
+                value="Female"
+                checked={gender === "Female"}
+                onChange={(e) => setGender(e.target.value)}
+                className="mr-2"
+                required
+              />
+              <label htmlFor="gender-female" className="text-gray-700">
+                Female
+              </label>
+            </div>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2" htmlFor="currentEducation">
+              Current Education:
+            </label>
+            <select
+              id="currentEducation"
+              value={currentEducation}
+              onChange={(e) => setCurrentEducation(e.target.value)}
+              className="border-2 border-gray-200 p-2 w-full rounded-md"
+              required
+            >
+              <option value="">Please select</option>
+              <option value="Primary">Primary</option>
+              <option value="Secondary">Secondary</option>
+              <option value="Tertiary">Tertiary</option>
+              <option value="Not in school">Not in school</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-bold mb-2" htmlFor="codingExperience">
+              Coding Experience:
+            </label>
+            <select
+              id="codingExperience"
+              value={codingExperience}
+              onChange={(e) => setCodingExperience(e.target.value)}
+              className="border-2 border-gray-200 p-2 w-full rounded-md"
+              required
+            >
+              <option value="">Please select</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>            </select>
+          </div>
+          <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2" htmlFor="howDidYouFindUs">
               How did you find us?
             </label>
@@ -101,17 +197,17 @@ function Form1() {
               <option value="">Please select</option>
               <option value="Google">Google</option>
               <option value="Social Media">Social Media</option>
-              <option value="Friend or Family">Friend orFamily</option>
+              <option value="Friend or Family">Friend or Family</option>
               <option value="Other">Other</option>
             </select>
           </div>
-          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-md">
-            Join
+          <button type="submit" className={`py-2 px-2 font-poppins font-medium text-[14px] text-primary bg-blue-gradient rounded-[10px] outline-none`}>
+            Submit
           </button>
         </form>
       ) : (
-        <div className="max-w-md mx-auto mt-40 px-4 py-8 bg-white bg-opacity-50  backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4">
-          <h2 className="text-4xl text-white font-bold mb-4">Form Application Sent</h2>
+        <div className="max-w-md mx-auto mt-40 px-4 py-8 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4">
+          <h2 className="text-4xl text-white font-bold mb-4">Application Sent</h2>
           <p className="text-white">Thank you for your submission!</p>
         </div>
       )}

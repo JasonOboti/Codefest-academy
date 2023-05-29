@@ -165,20 +165,12 @@ export const footerLinks = [
     title: "Useful Links",
     links: [
       {
-        name: "Content",
+        name: "Apply",
         link: "",
       },
       {
         name: "How it Works",
         link: "",
-      },
-      {
-        name: "Explore",
-        link: "",
-      },
-      {
-        name: "Terms & Services",
-        link: "https://www.hoobank.com/terms-and-services/",
       },
     ],
   },
@@ -194,10 +186,6 @@ export const footerLinks = [
         link: "",
       },
       {
-        name: "Suggestions",
-        link: "",
-      },
-      {
         name: "Newsletters",
         link: "https://www.hoobank.com/newsletters/",
       },
@@ -206,10 +194,6 @@ export const footerLinks = [
   {
     title: "Partner",
     links: [
-      {
-        name: "Our Partner",
-        link: "",
-      },
       {
         name: "Become a Partner",
         link: "",
