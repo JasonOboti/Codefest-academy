@@ -8,17 +8,17 @@ const App = () => {
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
-        <Router basename="/Codefest-Academy">
+        <Router>
           <Routes>
             <Route path="/*" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/apply" element={< Apply/>} />
-            <Route path="/apply-STEM" element={< Apply1/>} />
-            <Route path="/apply-IT" element={< Apply2/>} />
-            <Route path="/apply-IT-program" element={< Apply3/>} />
-            <Route path="/apply-diploma" element={< Apply4/>} />
-            <Route path="/apply-CBT" element={< Apply5/>} />
+            <Route path="about" element={<About />} />
+            <Route path="career" element={<Career />} />
+            <Route path="apply" element={< Apply />} />
+            <Route path="apply-STEM" element={< Apply1 />} />
+            <Route path="apply-IT" element={< Apply2 />} />
+            <Route path="apply-IT-program" element={< Apply3 />} />
+            <Route path="apply-diploma" element={< Apply4 />} />
+            <Route path="apply-CBT" element={< Apply5 />} />
           </Routes>
         </Router>
       </div>

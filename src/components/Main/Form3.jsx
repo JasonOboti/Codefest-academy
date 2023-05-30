@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import sendEmail from "./sendEmail";
+import sendEmail1 from "./sendEmail1";
 import sanitizeHtml from "sanitize-html";
 
 function Form2() {
@@ -19,6 +19,8 @@ function Form2() {
     const sanitizedLastName = sanitizeHtml(lastName);
     const sanitizedEmail = sanitizeHtml(email);
     const sanitizedMobile = sanitizeHtml(mobile);
+    const title = document.getElementById("title").textContent;
+
 
     const formData = {
       firstName: sanitizedFirstName,
@@ -26,10 +28,11 @@ function Form2() {
       email: sanitizedEmail,
       mobile: sanitizedMobile,
       message: sanitizeHtml(message),
+      title,
     };
 
     try {
-      await sendEmail(formData);
+      await sendEmail1(formData);
       setFormSubmitted(true);
     } catch (error) {
       console.error(error);
@@ -44,7 +47,7 @@ function Form2() {
           onSubmit={handleSubmit}
           className="max-w-md mx-auto mt-40 px-4 py-8 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4"
         >
-          <h2 className="text-2xl text-white font-bold mb-4">Apply for Annual Academic program</h2>
+          <h2 id="title" className="text-2xl text-white font-bold mb-4">Apply for Annual Academic program</h2>
           {error && (
             <p className="text-red-500 mb-4">Something went wrong. Please try again later.</p>
           )}
