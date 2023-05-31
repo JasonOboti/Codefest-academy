@@ -1,6 +1,6 @@
 import styles from '../style'
 import { Navbar, Hero, } from "../components";
-import { Career, Business, CardDeal, Clients, CTA, Footer, Stats, Testimonials, } from "./index";
+import { Career, Business, CardDeal, CTA, Footer, Stats, Testimonials, } from "./index";
 
 const Home = () => {
   return (
@@ -23,7 +23,7 @@ const Home = () => {
           <Career />
           <CardDeal />
           <Testimonials />
-          <Clients />
+         
           <CTA />
           <Footer />
         </div>

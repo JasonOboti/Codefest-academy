@@ -186,8 +186,8 @@ export const footerLinks = [
         link: "",
       },
       {
-        name: "Newsletters",
-        link: "https://www.hoobank.com/newsletters/",
+        name: "FAQ",
+        link: "",
       },
     ],
   },
