@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { close, logo, menu } from "../../assets";
 import { navLinks } from "../../constants";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [visible, setVisible] = useState(true);
-  
+
   useEffect(() => {
     let prevScrollpos = window.pageYOffset;
     const handleScroll = () => {
@@ -27,16 +28,15 @@ const Navbar = () => {
       style={{ position: "fixed", left: 0, right: 0, zIndex: 999, backdropFilter: "blur(20px)" }}
     >
       <Link to={`/`}>
-      <img src={logo} alt="Codefest" className="w-[190px] h-[50px] logo" />
+        <img src={logo} alt="Codefest" className="w-[190px] h-[50px] logo" />
       </Link>
-      
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title ? "text-white" : "text-dimWhite"
+              location.pathname === `/${nav.id}` ? "text-white" : "text-dimWhite"
             } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
           >
@@ -63,7 +63,7 @@ const Navbar = () => {
               <li
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-white" : "text-dimWhite"
+                  location.pathname === `/${nav.id}` ? "text-white" : "text-dimWhite"
                 } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
                 onClick={() => setActive(nav.title)}
               >

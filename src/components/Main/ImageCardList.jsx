@@ -1,22 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from "framer-motion";
+import ContentLoader from 'react-content-loader';
+import { motion } from 'framer-motion';
 
 const ImageCard = ({ image, writeup, to }) => (
-  <motion.div
-  whileHover={{ scale: 1.1 }}
-  whileTap={{ scale: 0.9 }}
-  >
+  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
     <Link to={to} className="card-link">
       <div className="card relative p-2">
-        <img src={image} alt="Card" className="card-image rounded-md" />
+        {image ? (
+          <img src={image} alt="Card" className="card-image rounded-md" />
+        ) : (
+          <ContentLoader
+            speed={2}
+            width={200}
+            height={200}
+            viewBox="0 0 200 200"
+            backgroundColor="#f3f3f3"
+            foregroundColor="#ecebeb"
+          >
+            <rect x="0" y="0" rx="10" ry="10" width="200" height="200" />
+          </ContentLoader>
+        )}
         <div className="card-overlay absolute inset-0 flex items-center justify-center opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 rounded-md">
-          <div className="card-writeup text-white text-center">{writeup}</div>
+          <div className="card-writeup text-white text-center font-bold font-lg">
+            {writeup}
+          </div>
         </div>
       </div>
     </Link>
   </motion.div>
-
 );
 
 const ImageCardList = ({ cardData }) => (

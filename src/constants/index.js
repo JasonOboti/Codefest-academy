@@ -166,11 +166,11 @@ export const footerLinks = [
     links: [
       {
         name: "Apply",
-        link: "",
+        link: "/apply",
       },
       {
         name: "How it Works",
-        link: "",
+        link: "/how-it-works",
       },
     ],
   },
@@ -178,28 +178,16 @@ export const footerLinks = [
     title: "Community",
     links: [
       {
-        name: "Help Center",
-        link: "",
-      },
-      {
         name: "Partners",
-        link: "",
+        link: "/partners",
       },
       {
         name: "FAQ",
-        link: "",
+        link: "/faq",
       },
     ],
   },
-  {
-    title: "Partner",
-    links: [
-      {
-        name: "Become a Partner",
-        link: "",
-      },
-    ],
-  },
+
 ];
 
 export const socialMedia = [

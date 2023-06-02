@@ -1,5 +1,5 @@
 import styles from '../style'
-import { Navbar, Hero, } from "../components";
+import { Navbar, Hero} from "../components";
 import { Career, Business, CardDeal, CTA, Footer, Stats, Testimonials, } from "./index";
 
 const Home = () => {
@@ -23,7 +23,6 @@ const Home = () => {
           <Career />
           <CardDeal />
           <Testimonials />
-         
           <CTA />
           <Footer />
         </div>

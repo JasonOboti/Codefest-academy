@@ -5,6 +5,7 @@ import GradientText from "./GradientText";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { Link } from "react-router-dom";
+import Terminal1 from "./Terminal1";
 
 const Hero = () => {
   const [ref, inView] = useInView({
@@ -95,15 +96,8 @@ const Hero = () => {
         >
           {/* Words */}
         </motion.h1>
-        <motion.p
-          className={`${styles.paragraph} max-w-[470px] mt-5`}
-          variants={item}
-        >
-          Join the ultimate platform for hackers, innovators, and tech enthusiasts! Unleash your creativity, learn something new, and make
-          lasting connections with like-minded individuals from around the world. Codefest Academy offers endless possibilities
-          for innovation and is suitable for coders of all levels. Get ready to hack your way to success and create something extraordinary!
-        </motion.p>
       </motion.div>
+      <Terminal1 />
 
       <motion.div
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}

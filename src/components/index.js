@@ -29,6 +29,13 @@ import Apply2 from "./Main/Apply2";
 import Apply3 from "./Main/Apply3";
 import Apply4 from "./Main/Apply4";
 import Apply5 from "./Main/Apply5";
+import FAQ from "./Main/FAQ";
+import FAQPage from "./FAQPage";
+import Terminal from "./Main/Terminal";
+import Terminal1 from "./Main/Terminal1";
+import Works from "./Works";
+import PartnerCarousel from "./Main/PartnerCarousel";
+import Partners from "./Partners"
 
 
 export {
@@ -63,4 +70,11 @@ export {
   Apply3,
   Apply4,
   Apply5,
+  FAQ,
+  FAQPage,
+  Terminal,
+  Terminal1,
+  Works,
+  PartnerCarousel,
+  Partners,
 };
