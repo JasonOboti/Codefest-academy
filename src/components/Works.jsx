@@ -1,19 +1,19 @@
-import React from 'react'
-import styles from '../style'
-import { Navbar, Footer, Terminal} from "../components";
+import React from 'react';
+import { Navbar, Footer, Terminal } from '../components';
+import styles from '../style';
 
 const Works = () => {
-    return (
-        <div className="bg-primary w-full overflow-hidden">
-            <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-                <div className={`${styles.boxWidth}`}>
-                    <Navbar />
-                    <Terminal />
-                    <Footer />
-                </div>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className={`${styles.paddingX} flex-grow ${styles.flexCenter}`}>
+        <Terminal />
+      </div>
+      <div className={`p-10`}>
+        <Footer />
+      </div>
+    </div>
+  );
+};
 
-export default Works
+export default Works;

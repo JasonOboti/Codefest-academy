@@ -1,19 +1,19 @@
-import React from 'react'
-import styles from '../style'
-import {Footer, Navbar, PartnerCarousel} from "../components";
+import React from 'react';
+import { Footer, Navbar, PartnerCarousel } from '../components';
+import styles from '../style';
 
 const Works = () => {
-    return (
-        <div className="bg-primary w-full overflow-hidden">
-            <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-                <div className={`${styles.boxWidth}`}>
-                    <Navbar />
-                    <PartnerCarousel />
-                    <Footer />
-                </div>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className={`${styles.paddingX} flex-grow ${styles.flexCenter}`}>
+        <PartnerCarousel />
+      </div>
+      <div className={`p-10`}>
+        <Footer />
+      </div>
+    </div>
+  );
+};
 
-export default Works
+export default Works;

@@ -64,7 +64,7 @@ const Terminal = () => {
 
   return (
     <div className="flex flex-col mt-20 items-center justify-center w-full h-full px-4 py-10 rounded-lg bg-gray-900 text-white">
-      <div className="max-w-lg w-full bg-gray-800 text-green-400 font-mono rounded-lg p-4 text-sm md:text-base overflow-x-auto">
+      <div className="max-w-lg w-full bg-gray-800 text-white-400 font-mono rounded-lg p-4 text-sm md:text-base overflow-x-auto">
         <div className="flex justify-start mb-2">
           <div className="bg-red-500 w-2 h-2 rounded-full mr-2" />
           <div className="bg-yellow-500 w-2 h-2 rounded-full mr-2" />

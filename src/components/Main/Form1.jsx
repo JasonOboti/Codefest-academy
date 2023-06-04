@@ -20,9 +20,12 @@ function Form1() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     if (formSubmitted) {
       return; // Prevent multiple submissions
     }
+
+    setFormSubmitted(true);
 
     // Sanitize input values
     const sanitizedFirstName = sanitizeHtml(firstName);
@@ -51,6 +54,7 @@ function Form1() {
     } catch (error) {
       console.error(error);
       setError(true);
+      setFormSubmitted(false); // Reset the form submission status
     }
   };
 
@@ -209,7 +213,6 @@ function Form1() {
         <div className="max-w-md mx-auto mt-40 px-4 py-8 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4">
           <h2 className="text-4xl text-white font-bold mb-4">Application Sent</h2>
           <p className="text-white">Thank you for your submission!</p>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Paper_airplane.svg/1200px-Paper_airplane.svg.png" alt="Paper plane" className="mx-auto mb-4" />
         </div>
 
       )}

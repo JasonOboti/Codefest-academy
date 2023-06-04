@@ -42,7 +42,7 @@ const PartnerCarousel = () => {
 const AnimatedPartnerName = ({ children, style }) => {
   return (
     <animated.div
-      className="text-primary bg-blue-gradient rounded-[10px] outline-none font-bold text-center text-lg p-4 rounded-lg mx-4 my-8"
+      className="text-primary bg-blue-gradient rounded-[10px] outline-none font-bold text-center text-lg p-4 mx-4 my-8"
       style={style}
     >
       {children}

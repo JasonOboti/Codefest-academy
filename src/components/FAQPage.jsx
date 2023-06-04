@@ -1,19 +1,19 @@
-import React from 'react'
-import styles from '../style'
-import { Navbar, Footer, FAQ} from "../components";
+import React from 'react';
+import { Navbar, Footer, FAQ } from '../components';
+import styles from '../style';
 
 const FAQPage = () => {
-    return (
-        <div className="bg-primary w-full overflow-hidden">
-            <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-                <div className={`${styles.boxWidth}`}>
-                    <Navbar />
-                    <FAQ />
-                    <Footer />
-                </div>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className={`${styles.paddingX} flex-grow ${styles.flexCenter}`}>
+        <FAQ />
+      </div>
+      <div className={`p-10`}>
+        <Footer />
+      </div>
+    </div>
+  );
+};
 
-export default FAQPage
+export default FAQPage;
