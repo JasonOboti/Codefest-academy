@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import ContentLoader from 'react-content-loader';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import ContentLoader from "react-content-loader";
+import { motion } from "framer-motion";
 
 const ImageCard = ({ image, writeup, to }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -46,17 +46,22 @@ const ImageCard = ({ image, writeup, to }) => {
   );
 };
 
-const ImageCardList = ({ cardData }) => (
-  <div className="card-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" style={{ paddingTop: '90px' }}>
-    {cardData.map((card, index) => (
-      <ImageCard
-        key={index}
-        image={card.image}
-        writeup={card.writeup}
-        to={card.to}
-      />
-    ))}
-  </div>
-);
+const ImageCardList = ({ cardData }) => {
+  return (
+    <div
+      className="card-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+      style={{ paddingTop: "90px" }}
+    >
+      {cardData.map((card, index) => (
+        <ImageCard
+          key={index}
+          image={card.image}
+          writeup={card.writeup}
+          to={card.to}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default ImageCardList;

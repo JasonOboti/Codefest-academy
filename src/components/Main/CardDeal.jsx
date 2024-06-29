@@ -35,8 +35,8 @@ const CardDeal = () => {
         transition={{ duration: 0.5 }}
       >
         <h2 className={styles.heading2}>
-          Looking for the best career in Tech?<br className="sm:block hidden" /> Let Codefest
-          be your guide
+          Looking for the best career in Tech?
+          <br className="sm:block hidden" /> Let Codefest be your guide
         </h2>
         <motion.p
           className={`${styles.paragraph} max-w-[470px] mt-5`}
@@ -46,7 +46,8 @@ const CardDeal = () => {
           }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Codefest admission is currently open for diploma and degree pathway in Tech.
+          Codefest admission is currently open for diploma and degree pathway in
+          Tech.
         </motion.p>
 
         <motion.div

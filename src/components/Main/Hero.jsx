@@ -3,7 +3,7 @@ import { discount, globe } from "../../assets";
 import GetStarted from "./GetStarted";
 import GradientText from "./GradientText";
 import { motion } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
+import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import Terminal1 from "./Terminal1";
 
@@ -29,7 +29,6 @@ const Hero = () => {
     show: { opacity: 1, y: 0 },
   };
 
-
   return (
     <section
       id="home"
@@ -52,21 +51,12 @@ const Hero = () => {
             className="w-[32px] h-[32px]"
             variants={item}
           />
-          <motion.p
-            className={`${styles.paragraph} ml-2`}
-            variants={item}
-          >
-            <motion.span
-              className="text-white"
-              variants={item}
-            >
+          <motion.p className={`${styles.paragraph} ml-2`} variants={item}>
+            <motion.span className="text-white" variants={item}>
               Your
             </motion.span>{" "}
             Virtual{" "}
-            <motion.span
-              className="text-white"
-              variants={item}
-            >
+            <motion.span className="text-white" variants={item}>
               University
             </motion.span>
           </motion.p>
@@ -84,9 +74,8 @@ const Hero = () => {
             whileTap={{ scale: 0.9 }}
           >
             <Link to="/apply">
-            <GetStarted variants={item} />
+              <GetStarted variants={item} />
             </Link>
-            
           </motion.div>
         </motion.div>
 
@@ -109,11 +98,20 @@ const Hero = () => {
           className="w-[100%] h-[100%] relative z-[5] logo-react"
           variants={item}
         />
-      {/* gradient start */}
-      <motion.div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" variants={item} />
-      <motion.div className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40" variants={item} />
-      <motion.div className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient" variants={item} />
-      {/* gradient end */}
+        {/* gradient start */}
+        <motion.div
+          className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient"
+          variants={item}
+        />
+        <motion.div
+          className="absolute z-[1] w-[80%] h-[80%] rounded-full white__gradient bottom-40"
+          variants={item}
+        />
+        <motion.div
+          className="absolute z-[0] w-[50%] h-[50%] right-20 bottom-20 blue__gradient"
+          variants={item}
+        />
+        {/* gradient end */}
       </motion.div>
     </section>
   );

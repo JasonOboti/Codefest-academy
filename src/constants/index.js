@@ -1,4 +1,19 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import {
+  people01,
+  people02,
+  people03,
+  facebook,
+  instagram,
+  linkedin,
+  twitter,
+  airbnb,
+  binance,
+  coinbase,
+  dropbox,
+  send,
+  shield,
+  star,
+} from "../assets";
 
 export const navLinks = [
   {
@@ -111,11 +126,10 @@ export const services = [
   },
 ];
 
-
 export const feedback = [
   {
     id: "feedback-1",
-    content:`"I Thank Codefest for this wonderful program. They really helped me kickstart my coding journey by giving me the strong 
+    content: `"I Thank Codefest for this wonderful program. They really helped me kickstart my coding journey by giving me the strong 
     foundation that I needed to excel. I couldn't have asked for a better experience. Thank you."`,
     name: "Udeh Evander Chika",
     title: "Student",
@@ -123,8 +137,7 @@ export const feedback = [
   },
   {
     id: "feedback-2",
-    content:
-      `"I owe the initiators of this program a big 'THANK YOU'. The program has impacted on my life in no small ways. when i thought 
+    content: `"I owe the initiators of this program a big 'THANK YOU'. The program has impacted on my life in no small ways. when i thought 
       of web design, I never meant it to be as intense as it turned out to be but with all 
       the helpful activities and exercises that the course provided I was able to scale through perfectly. Thanks and Thanks again"`,
     name: "Alonu Toluwani Deborah",
@@ -139,7 +152,6 @@ export const feedback = [
     title: "Student",
     img: people03,
   },
-
 ];
 
 export const stats = [
@@ -187,14 +199,13 @@ export const footerLinks = [
       },
     ],
   },
-
 ];
 
 export const socialMedia = [
   {
     id: "social-media-1",
     icon: instagram,
-    link: "https://www.instagram.com/invites/contact/?i=77vb3lelju3z&&utm_content=2vpy4c8",
+    link: "https://www.instagram.com/codefestinstitute_technology/",
   },
   {
     id: "social-media-2",
@@ -204,12 +215,12 @@ export const socialMedia = [
   {
     id: "social-media-3",
     icon: twitter,
-    link: "https://www.twitter.com/",
+    link: "https://twitter.com/codefestng/",
   },
   {
     id: "social-media-4",
     icon: linkedin,
-    link: "https://www.linkedin.com/",
+    link: "https://www.linkedin.com/company/codefestinternational/",
   },
 ];
 

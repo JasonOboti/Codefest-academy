@@ -7,32 +7,33 @@ import slide_image_3 from "../assets/Photos/Apply (5).jpg";
 import slide_image_4 from "../assets/Photos/Apply (3).jpg";
 import slide_image_5 from "../assets/Photos/Apply (4).jpg";
 import travel from "../assets/Photos/travel.jpg";
+import ScrollToTop from "./ScrollToTop";
 
 const imageData = [
   {
     image: slide_image_1,
     writeup: "STEM (Coding) School",
-    to: "/apply-STEM",
+    to: "stem",
   },
   {
     image: slide_image_2,
     writeup: "IT Courses 1 - 3 months",
-    to: "/apply-IT",
+    to: "it-course",
   },
   {
     image: slide_image_3,
     writeup: "IT career training and Job placement",
-    to: "/apply-IT-program",
+    to: "it-career",
   },
   {
     image: slide_image_4,
     writeup: "Diploma program",
-    to: "/apply-diploma",
+    to: "diploma",
   },
   {
     image: slide_image_5,
     writeup: "Center leasing/CBT",
-    to: "/apply-CBT",
+    to: "cbt",
   },
   // Add more data objects for additional cards
 ];
@@ -47,11 +48,38 @@ const Banner = () => {
         position: "relative",
       }}
     >
-      <div className="overlay" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.5)", zIndex: 1 }}></div>
-      <p className="text-white mb-5 m-1" style={{ position: "relative", zIndex: 2, fontSize: "2.5rem", fontWeight: "bold" }}>
+      <div
+        className="overlay"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
+          zIndex: 1,
+        }}
+      ></div>
+      <p
+        className="text-white mb-5 m-1"
+        style={{
+          position: "relative",
+          zIndex: 2,
+          fontSize: "2.5rem",
+          fontWeight: "bold",
+        }}
+      >
         Travel Abroad
       </p>
-      <p className="text-white mb-5 m-1" style={{ position: "relative", zIndex: 2, fontSize: "1.5rem", fontWeight: "bold" }}>
+      <p
+        className="text-white mb-5 m-1"
+        style={{
+          position: "relative",
+          zIndex: 2,
+          fontSize: "1.5rem",
+          fontWeight: "bold",
+        }}
+      >
         Explore Exciting Opportunities Abroad
       </p>
       <a
@@ -84,15 +112,14 @@ const Banner = () => {
         Apply Now
       </a>
     </div>
-
   );
 };
 
 const Apply = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Navbar />
-
       <Banner />
       <div
         className={`flex-grow bg-primary ${styles.paddingX} ${styles.flexCenter}`}

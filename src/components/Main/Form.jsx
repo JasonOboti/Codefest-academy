@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import sendEmail from "./sendEmail";
 import sanitizeHtml from "sanitize-html";
 
-function Form1() {
+function Form() {
+  const { program } = useParams();
+  const navigate = useNavigate();
+  const [selectedProgram, setSelectedProgram] = useState(program);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,6 +18,14 @@ function Form1() {
   const [codingExperience, setCodingExperience] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setSelectedProgram(program);
+  }, [program]);
+
+  useEffect(() => {
+    navigate(`/apply/${selectedProgram}`, { replace: true });
+  }, [selectedProgram, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +45,7 @@ function Form1() {
     const sanitizedGender = sanitizeHtml(gender);
     const sanitizedCurrentEducation = sanitizeHtml(currentEducation);
     const sanitizedCodingExperience = sanitizeHtml(codingExperience);
-    const title = document.getElementById("title").textContent;
+    const sanitizedProgram = sanitizeHtml(selectedProgram);
 
     const formData = {
       firstName: sanitizedFirstName,
@@ -43,14 +56,17 @@ function Form1() {
       gender: sanitizedGender,
       currentEducation: sanitizedCurrentEducation,
       codingExperience: sanitizedCodingExperience,
-      title,
+      program: sanitizedProgram,
     };
+
+    console.log(formData);
 
     try {
       await sendEmail(formData);
       setFormSubmitted(true);
     } catch (error) {
       console.error(error);
+      console.log(error);
       setError(true);
       setFormSubmitted(false); // Reset the form submission status
     }
@@ -64,22 +80,46 @@ function Form1() {
           className="max-w-md mx-auto mt-40 px-4 py-8 bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-2xl shadow-md p-4"
         >
           <h2 id="title" className="text-2xl text-white font-bold mb-4">
-            Apply for STEM (Coding) School program
+            Apply for {selectedProgram} program
           </h2>
           {error && (
             <p className="text-red-500 mb-4">
               Something went wrong. Please try again later.
             </p>
           )}
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="program"
+            >
+              Program:
+            </label>
+            <select
+              style={{ border: "none", outline: "none" }}
+              id="program"
+              value={selectedProgram}
+              onChange={(e) => setSelectedProgram(e.target.value)}
+              className="border-2 border-gray-200 p-2 w-full rounded-md"
+              required
+            >
+              <option value="stem">STEM</option>
+              <option value="it-course">IT-Course</option>
+              <option value="it-career">IT-Career</option>
+              <option value="diploma">Diploma</option>
+              <option value="cbt">CBT</option>
+            </select>
+          </div>
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
               <label
+                style={{ border: "none", outline: "none" }}
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="firstName"
               >
                 First Name:
               </label>
               <input
+                style={{ border: "none", outline: "none" }}
                 id="firstName"
                 type="text"
                 value={firstName}
@@ -94,12 +134,14 @@ function Form1() {
             </div>
             <div>
               <label
+                style={{ border: "none", outline: "none" }}
                 className="block text-gray-700 font-bold mb-2"
                 htmlFor="lastName"
               >
                 Last Name:
               </label>
               <input
+                style={{ border: "none", outline: "none" }}
                 id="lastName"
                 type="text"
                 value={lastName}
@@ -121,6 +163,7 @@ function Form1() {
               Email:
             </label>
             <input
+              style={{ border: "none", outline: "none" }}
               id="email"
               type="email"
               value={email}
@@ -137,6 +180,7 @@ function Form1() {
               Mobile:
             </label>
             <input
+              style={{ border: "none", outline: "none" }}
               id="mobile"
               type="text"
               value={mobile}
@@ -152,32 +196,18 @@ function Form1() {
             >
               Gender:
             </label>
-            <div className="flex items-center">
-              <input
-                type="radio"
-                id="gender-male"
-                value="Male"
-                checked={gender === "Male"}
-                onChange={(e) => setGender(e.target.value)}
-                className="mr-2"
-                required
-              />
-              <label htmlFor="gender-male" className="text-gray-700 mr-4">
-                Male
-              </label>
-              <input
-                type="radio"
-                id="gender-female"
-                value="Female"
-                checked={gender === "Female"}
-                onChange={(e) => setGender(e.target.value)}
-                className="mr-2"
-                required
-              />
-              <label htmlFor="gender-female" className="text-gray-700">
-                Female
-              </label>
-            </div>
+            <select
+              style={{ border: "none", outline: "none" }}
+              id="gender"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              className="border-2 border-gray-200 p-2 w-full rounded-md"
+              required
+            >
+              <option value="">Please select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
           </div>
           <div className="mb-4">
             <label
@@ -187,6 +217,7 @@ function Form1() {
               Current Education:
             </label>
             <select
+              style={{ border: "none", outline: "none" }}
               id="currentEducation"
               value={currentEducation}
               onChange={(e) => setCurrentEducation(e.target.value)}
@@ -208,6 +239,7 @@ function Form1() {
               Coding Experience:
             </label>
             <select
+              style={{ border: "none", outline: "none" }}
               id="codingExperience"
               value={codingExperience}
               onChange={(e) => setCodingExperience(e.target.value)}
@@ -216,7 +248,7 @@ function Form1() {
             >
               <option value="">Please select</option>
               <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>{" "}
+              <option value="Intermediate">Intermediate</option>
             </select>
           </div>
           <div className="mb-4">
@@ -227,6 +259,7 @@ function Form1() {
               How did you find us?
             </label>
             <select
+              style={{ border: "none", outline: "none" }}
               id="howDidYouFindUs"
               value={howDidYouFindUs}
               onChange={(e) => setHowDidYouFindUs(e.target.value)}
@@ -242,7 +275,7 @@ function Form1() {
           </div>
           <button
             type="submit"
-            className={`py-2 px-2 font-poppins font-medium text-[14px] text-primary bg-blue-gradient rounded-[10px] outline-none`}
+            className="py-2 px-2 font-poppins font-medium text-[14px] text-primary bg-blue-gradient rounded-[10px] outline-none"
           >
             Submit
           </button>
@@ -259,4 +292,4 @@ function Form1() {
   );
 }
 
-export default Form1;
+export default Form;

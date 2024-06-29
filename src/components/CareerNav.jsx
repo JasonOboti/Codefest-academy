@@ -1,21 +1,18 @@
-import React from 'react';
-import Navbar from './Main/Navbar';
-import Footer from './Main/Footer';
-import BackgroundImage from './Main/BackgroundImage';
-import styles from '../style';
+import React from "react";
+import Navbar from "./Main/Navbar";
+import Footer from "./Main/Footer";
+import BackgroundImage from "./Main/BackgroundImage";
+import styles from "../style";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import Coverflow from './Main/Coverflow';
+import Coverflow from "./Main/Coverflow";
+import ScrollToTop from "./ScrollToTop";
 
 import slide_image_1 from "../assets/Photos/Background (5).jpg";
 import slide_image_2 from "../assets/Photos/Background (3).jpg";
 import slide_image_3 from "../assets/Photos/Background (7).jpg";
 
-const photos = [
-  slide_image_1,
-  slide_image_2,
-  slide_image_3,
-];
+const photos = [slide_image_1, slide_image_2, slide_image_3];
 
 const CareerNav = () => {
   const [ref, inView] = useInView({
@@ -35,6 +32,7 @@ const CareerNav = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Navbar />
       <BackgroundImage photos={photos} />
       <Coverflow />

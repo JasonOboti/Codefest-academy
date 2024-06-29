@@ -1,15 +1,18 @@
-import React from 'react';
-import styles from '../../style';
-import { Navbar, Footer, Form4 } from "../../components";
+import React from "react";
+import styles from "../../style";
+import { Navbar, Footer, Form } from "..";
+import ScrollToTop from "../ScrollToTop";
 
-const Apply4 = () => {
+const Apply = () => {
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Navbar />
-
-      <div className={`flex-grow bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+      <div
+        className={`flex-grow bg-primary ${styles.paddingX} ${styles.flexCenter}`}
+      >
         <div className={`${styles.boxWidth}`}>
-          <Form4 />
+          <Form />
           <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
           <div className="absolute z-[0] w-[50%] h-[50%] -left-1/2 bottom-0 rounded-full pink__gradient" />
         </div>
@@ -19,7 +22,7 @@ const Apply4 = () => {
         <Footer />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Apply4;
+export default Apply;

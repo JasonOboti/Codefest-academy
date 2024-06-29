@@ -1,10 +1,12 @@
-import React from 'react';
-import { Navbar, Footer, Terminal } from '../components';
-import styles from '../style';
+import React from "react";
+import { Navbar, Footer, Terminal } from "../components";
+import styles from "../style";
+import ScrollToTop from "./ScrollToTop";
 
 const Works = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <Navbar />
       <div className={`${styles.paddingX} flex-grow ${styles.flexCenter}`}>
         <Terminal />

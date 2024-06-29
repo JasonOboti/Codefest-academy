@@ -1,13 +1,12 @@
 import emailjs from "emailjs-com";
 
-
-const sendEmail1 = (formData) => {
+const sendEmail = (formData) => {
   const serviceId = import.meta.env.VITE_SERVICE_ID;
   const templateId = import.meta.env.VITE_TEMPLATE_ID1;
   const publicKey = import.meta.env.VITE_PUBLIC_KEY;
-  
 
-  emailjs.send(serviceId, templateId, formData, publicKey)
+  emailjs
+    .send(serviceId, templateId, formData, publicKey)
     .then((response) => {
       console.log("Email sent successfully!");
     })
@@ -16,4 +15,4 @@ const sendEmail1 = (formData) => {
     });
 };
 
-export default sendEmail1;
+export default sendEmail;
